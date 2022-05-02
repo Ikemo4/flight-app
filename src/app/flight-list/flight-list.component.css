@@ -1,0 +1,15 @@
+.container {
+    background-color: grey;
+}
+
+.col {
+    background-color: #022344;
+    color: white;
+    margin: 1%;
+}
+
+.col.details {
+    background-color: white;
+    color: #022344;
+    margin: 0%;
+}

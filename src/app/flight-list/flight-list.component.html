@@ -1,0 +1,102 @@
+<a [routerLink]="['/']">
+    <h1>Flight Manifest</h1>
+</a>
+
+<div class="container">
+    <!-- <div>
+        Gate Display - On Time
+    </div> -->
+    <div class="row">
+        <div class="col">
+            <div *ngFor="let flight of flights | filterOnTime" type="button" (click)="onSelect(flight)">
+                    <div class="row">
+                        <div class="col">
+                                <h3> 
+                                FLIGHT {{ flight.flightNumber }}
+                                </h3>
+                            </div>
+                        <div class="col">
+                            <h3>
+                                STATUS
+                            </h3>
+                        </div>
+                    </div>    
+                        <!-- Boards in {{ flight.timeToDepart }} minutes -->
+                    <div class="row">
+                        <div class="col">
+                            <h3>
+                                {{ flight.destination }}
+                            </h3>
+                        </div>
+                        <div class="col">
+                            <h3>
+                                {{ flight.status }}
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col details">
+                            GATE {{ flight.gate }}
+                        </div>
+                        <div class="col details">
+                            DOOR CLOSES 1:55pm
+                        </div>
+                        <div class="col details">
+                            Departing Time 2:05 pm
+                        </div>
+                    </div>
+            </div>
+        </div>
+    <!-- <div>
+        Gate Display - Delayed
+    </div> -->
+        <div class="col">
+            <div *ngFor="let flight of flights | filterDelays" type="button" (click)="onSelect(flight)">
+                    <div class="row">
+                        <div class="col">
+                                <h3> 
+                                FLIGHT {{ flight.flightNumber }}
+                                </h3>
+                            </div>
+                        <div class="col">
+                            <h3>
+                                STATUS
+                            </h3>
+                        </div>
+                    </div>    
+                        <!-- Boards in {{ flight.timeToDepart }} minutes -->
+                    <div class="row">
+                        <div class="col">
+                            <h3>
+                                {{ flight.destination }}
+                            </h3>
+                        </div>
+                        <div class="col">
+                            <h3 style="color: red">
+                                {{ flight.status }}
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col details">
+                            GATE {{ flight.gate }}
+                        </div>
+                        <div class="col details">
+                            DOOR CLOSES 1:55pm
+                        </div>
+                        <div class="col details">
+                            Departing Time 2:05 pm
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="selectedFlight">
+    <h2> {{ selectedFlight.origin | uppercase }} to {{ selectedFlight.destination | uppercase }} details</h2>
+    <div>
+        <label id="flight-number">{{ selectedFlight.flightNumber }}</label>
+        <label id="flight-status">{{ selectedFlight.status }}</label>
+    </div>
+</div>
