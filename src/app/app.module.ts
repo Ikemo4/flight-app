@@ -8,6 +8,9 @@ import { FlightListComponent } from './flight-list/flight-list.component';
 import { FilterDelaysPipe } from './flight-list/flight-list.component';
 import { FilterOnTimePipe } from './flight-list/flight-list.component';
 
+import { flightsReducer } from './state/flights.reducer';
+import { StoreModule } from '@ngrx/store';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,9 @@ import { FilterOnTimePipe } from './flight-list/flight-list.component';
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: FlightListComponent },
-    ])
+    ]),
+    StoreModule.forRoot({ flights: flightsReducer }),
+    //HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

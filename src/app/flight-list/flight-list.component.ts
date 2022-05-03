@@ -1,6 +1,8 @@
 import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
+import { of, Observable } from 'rxjs';
 import { Flight } from '../flight.model';
-import { FLIGHTS } from '../flights';
+// import { FLIGHTS } from '../flights';
+import { UpdateFlightService } from './flights.service';
 
 @Component({
   selector: 'app-flight-list',
@@ -8,16 +10,33 @@ import { FLIGHTS } from '../flights';
   styleUrls: ['./flight-list.component.css']
 })
 export class FlightListComponent implements OnInit {
-  flights = FLIGHTS;
+  flights: Flight[] = [];
   selectedFlight?: Flight;
   
   onSelect(flight: Flight): void {
     this.selectedFlight = flight;
-}
+  }
 
-  constructor() { }
+  getFlights(): void {
+    this.flightService.getFlights()
+      .subscribe(flights => this.flights = flights);
+  }
+
+  changeFlights(): void {
+    this.flights.forEach(flight => {
+      (flight.status == 'Delayed') ? flight.status = 'On Time' : flight.status = 'Delayed'
+    });
+  }
+
+  constructor(private flightService: UpdateFlightService) { }
 
   ngOnInit(): void {
+    this.getFlights();
+
+    setInterval( () => {
+      this.changeFlights();
+    }, 60*1000);
+
   }
 
 }
