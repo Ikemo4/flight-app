@@ -26,6 +26,8 @@ export class FlightListComponent implements OnInit {
     this.flights.forEach(flight => {
       (flight.status == 'Delayed') ? flight.status = 'On Time' : flight.status = 'Delayed'
     });
+
+    this.getFlights();
   }
 
   constructor(private flightService: UpdateFlightService) { }
@@ -46,8 +48,8 @@ export class FlightListComponent implements OnInit {
 })
 
 export class FilterDelaysPipe implements PipeTransform {
-  transform(values: any[], ...args: unknown[]): any[] {
-    return values.filter(v => v.status == 'Delayed')
+  transform(values: any[], ...args: unknown[]): Observable<any[]> {
+    return of(values.filter(v => v.status == 'Delayed'))
   }
 }
 
@@ -56,7 +58,7 @@ export class FilterDelaysPipe implements PipeTransform {
 })
 
 export class FilterOnTimePipe implements PipeTransform {
-  transform(values: any[], ...args: unknown[]): any[] {
-    return values.filter(v => v.status == 'On Time')
+  transform(values: any[], ...args: unknown[]): Observable<any[]> {
+    return of(values.filter(v => v.status == 'On Time'))
   }
 }
