@@ -1,3 +1,4 @@
+import { ChangeDetectionStrategy } from '@angular/compiler';
 import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { of, Observable } from 'rxjs';
 import { Flight } from '../flight.model';
@@ -11,6 +12,8 @@ import { UpdateFlightService } from './flight-list.service';
 })
 export class FlightListComponent implements OnInit {
   flights: Flight[] = [];
+  filterField: string = '';
+  filterResults: Observable<Flight[]> = of([]);
   // selectedFlight?: Flight;
   
   // onSelect(flight: Flight): void {
@@ -44,21 +47,29 @@ export class FlightListComponent implements OnInit {
 }
 
 @Pipe({
-  name: 'filterDelays'
+  name: 'filterDelays',
+  pure: false
 })
 
 export class FilterDelaysPipe implements PipeTransform {
-  transform(values: any[], ...args: unknown[]): Observable<any[]> {
-    return of(values.filter(v => v.status == 'Delayed'))
+  constructor(private flightService: UpdateFlightService) {}
+
+  transform(values: any[]): Observable<Flight[]> {
+    return this.flightService.filterFlights('Delayed');
   }
+
 }
 
 @Pipe({
-  name: 'filterOnTime'
+  name: 'filterOnTime',
+  pure: false
 })
 
 export class FilterOnTimePipe implements PipeTransform {
-  transform(values: any[], ...args: unknown[]): Observable<any[]> {
-    return of(values.filter(v => v.status == 'On Time'))
+  constructor(private flightService: UpdateFlightService) {}
+
+  transform(values: any[]): Observable<Flight[]> {
+    return this.flightService.filterFlights('On Time');
   }
+
 }

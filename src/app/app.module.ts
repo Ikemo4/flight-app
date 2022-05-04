@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { FlightListComponent } from './flight-list/flight-list.component';
+
 import { FilterDelaysPipe } from './flight-list/flight-list.component';
 import { FilterOnTimePipe } from './flight-list/flight-list.component';
 
@@ -19,7 +20,7 @@ import { FlightDetailComponent } from './flight-detail/flight-detail.component';
     FlightListComponent,
     FilterDelaysPipe,
     FilterOnTimePipe,
-    FlightDetailComponent
+    FlightDetailComponent,
   ],
   imports: [
     BrowserModule,

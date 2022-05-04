@@ -25,6 +25,26 @@ export class UpdateFlightService {
     const flight = FLIGHTS.find(f => f.id === id)!;
     return of(flight);
   }
+
+  filterFlights(filter?: string): Observable<Flight[]> {
+    return of(FLIGHTS).pipe(
+      map(f => {
+        if (!filter) {
+          return f;
+        }
+
+        const filteredFlights: Flight[] = [];
+
+        f.filter( (flight) => {
+          if (flight.status.toLowerCase().includes(filter.toLowerCase())) {
+            filteredFlights.push(flight);
+          }
+        });
+
+        return filteredFlights;
+      })
+    )
+  }
 }
 
 //Need to modify this class to update your flights every minute with pre-determined values rather than thru a google api
