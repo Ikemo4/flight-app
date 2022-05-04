@@ -3,9 +3,14 @@
 </a>
 
 <div class="container">
-    <!-- <div>
-        Gate Display - On Time
-    </div> -->
+    <div class="row">
+        <div class="col details">
+            Gate Display - On Time
+        </div>
+        <div class="col details">
+            Gate Display - Delayed
+        </div>
+    </div>
     <div class="row">
         <div class="col">
             <div *ngFor="let flight of flights | filterOnTime | async" type="button" (click)="onSelect(flight)">
@@ -20,8 +25,12 @@
                                 STATUS
                             </h3>
                         </div>
-                    </div>    
-                        <!-- Boards in {{ flight.timeToDepart }} minutes -->
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Boards in {{ flight.timeToDepart }} minutes
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col">
                             <h3>
@@ -47,9 +56,7 @@
                     </div>
             </div>
         </div>
-    <!-- <div>
-        Gate Display - Delayed
-    </div> -->
+
         <div class="col">
             <div *ngFor="let flight of flights | filterDelays | async" type="button" (click)="onSelect(flight)">
                     <div class="row">
@@ -63,8 +70,12 @@
                                 STATUS
                             </h3>
                         </div>
-                    </div>    
-                        <!-- Boards in {{ flight.timeToDepart }} minutes -->
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Boards in {{ flight.timeToDepart }} minutes
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col">
                             <h3>
