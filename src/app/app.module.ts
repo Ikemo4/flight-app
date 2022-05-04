@@ -10,13 +10,16 @@ import { FilterOnTimePipe } from './flight-list/flight-list.component';
 
 import { flightsReducer } from './state/flights.reducer';
 import { StoreModule } from '@ngrx/store';
+import { AppRoutingModule } from './app-routing.module';
+import { FlightDetailComponent } from './flight-detail/flight-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FlightListComponent,
     FilterDelaysPipe,
-    FilterOnTimePipe
+    FilterOnTimePipe,
+    FlightDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +28,7 @@ import { StoreModule } from '@ngrx/store';
       { path: '', component: FlightListComponent },
     ]),
     StoreModule.forRoot({ flights: flightsReducer }),
+    AppRoutingModule,
     //HttpClientModule
   ],
   providers: [],
