@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.4.
 
+# Description
+Flight App displays a list of flights (currently an array of mock flight data) and their departure information. The flights are categorized into two columns depending on their status (delayed/on time). Every minute, the flight status toggles from on time to delayed and vice versa through the use of an observable. Users can drill down on flight details by clicking on any flight.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
