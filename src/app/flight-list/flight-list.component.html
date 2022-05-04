@@ -9,7 +9,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <div *ngFor="let flight of flights | filterOnTime | async" type="button" (click)="onSelect(flight)">
+            <div *ngFor="let flight of flights | filterOnTime | async" routerLink="/detail/{{flight.id}}">
                     <div class="row">
                         <div class="col">
                                 <h3> 
@@ -54,7 +54,7 @@
         </div>
 
         <div class="col">
-            <div *ngFor="let flight of flights | filterDelays | async" type="button" (click)="onSelect(flight)">
+            <div *ngFor="let flight of flights | filterDelays | async" routerLink="/detail/{{flight.id}}">
                     <div class="row">
                         <div class="col">
                                 <h3> 

@@ -21,6 +21,10 @@ export class UpdateFlightService {
     return flights;
   }
 
+  getFlight(id: number): Observable<Flight> {
+    const flight = FLIGHTS.find(f => f.id === id)!;
+    return of(flight);
+  }
 }
 
 //Need to modify this class to update your flights every minute with pre-determined values rather than thru a google api

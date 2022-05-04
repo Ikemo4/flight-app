@@ -2,7 +2,7 @@ import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { of, Observable } from 'rxjs';
 import { Flight } from '../flight.model';
 // import { FLIGHTS } from '../flights';
-import { UpdateFlightService } from './flights.service';
+import { UpdateFlightService } from './flight-list.service';
 
 @Component({
   selector: 'app-flight-list',
@@ -11,11 +11,11 @@ import { UpdateFlightService } from './flights.service';
 })
 export class FlightListComponent implements OnInit {
   flights: Flight[] = [];
-  selectedFlight?: Flight;
+  // selectedFlight?: Flight;
   
-  onSelect(flight: Flight): void {
-    this.selectedFlight = flight;
-  }
+  // onSelect(flight: Flight): void {
+  //   this.selectedFlight = flight;
+  // }
 
   getFlights(): void {
     this.flightService.getFlights()
