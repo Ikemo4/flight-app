@@ -1,1 +1,7 @@
-<p>flight-detail works!</p>
+<div *ngIf="flight">
+    <h2> {{ flight.origin | uppercase }} to {{ flight.destination | uppercase }} details</h2>
+    <div>
+        <label id="flight-number">{{ flight.flightNumber }}</label>
+        <label id="flight-status">{{ flight.status }}</label>
+    </div>
+</div>

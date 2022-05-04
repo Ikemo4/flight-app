@@ -99,11 +99,3 @@
         </div>
     </div>
 </div>
-
-<div *ngIf="selectedFlight">
-    <h2> {{ selectedFlight.origin | uppercase }} to {{ selectedFlight.destination | uppercase }} details</h2>
-    <div>
-        <label id="flight-number">{{ selectedFlight.flightNumber }}</label>
-        <label id="flight-status">{{ selectedFlight.status }}</label>
-    </div>
-</div>
