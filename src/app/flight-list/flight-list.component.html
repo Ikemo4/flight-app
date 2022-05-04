@@ -9,92 +9,96 @@
     </div>
     <div class="row">
         <div class="col">
-            <div *ngFor="let flight of flights | filterOnTime | async" routerLink="/detail/{{flight.id}}">
-                    <div class="row">
-                        <div class="col">
-                                <h3> 
-                                FLIGHT {{ flight.flightNumber }}
+            <div *ngFor="let flight of flights | filterOnTime | async">
+                    <a routerLink="/detail/{{flight.id}}" style="text-decoration: none;">
+                        <div class="row">
+                            <div class="col">
+                                    <h3> 
+                                    FLIGHT {{ flight.flightNumber }}
+                                    </h3>
+                                </div>
+                            <div class="col">
+                                <h3>
+                                    STATUS
                                 </h3>
                             </div>
-                        <div class="col">
-                            <h3>
-                                STATUS
-                            </h3>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            Boards in {{ flight.timeToDepart }} minutes
+                        <div class="row">
+                            <div class="col">
+                                Boards in {{ flight.timeToDepart }} minutes
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <h3>
-                                {{ flight.destination }}
-                            </h3>
+                        <div class="row">
+                            <div class="col">
+                                <h3>
+                                    {{ flight.destination }}
+                                </h3>
+                            </div>
+                            <div class="col">
+                                <h3>
+                                    {{ flight.status }}
+                                </h3>
+                            </div>
                         </div>
-                        <div class="col">
-                            <h3>
-                                {{ flight.status }}
-                            </h3>
+                        <div class="row">
+                            <div class="col details">
+                                GATE {{ flight.gate }}
+                            </div>
+                            <div class="col details">
+                                DOOR CLOSES 1:55pm
+                            </div>
+                            <div class="col details">
+                                Departing Time 2:05 pm
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col details">
-                            GATE {{ flight.gate }}
-                        </div>
-                        <div class="col details">
-                            DOOR CLOSES 1:55pm
-                        </div>
-                        <div class="col details">
-                            Departing Time 2:05 pm
-                        </div>
-                    </div>
+                    </a>
             </div>
         </div>
 
         <div class="col">
             <div *ngFor="let flight of flights | filterDelays | async" routerLink="/detail/{{flight.id}}">
-                    <div class="row">
-                        <div class="col">
-                                <h3> 
-                                FLIGHT {{ flight.flightNumber }}
+                    <a routerLink="/detail/{{flight.id}}" style="text-decoration: none;">
+                        <div class="row">
+                            <div class="col">
+                                    <h3> 
+                                    FLIGHT {{ flight.flightNumber }}
+                                    </h3>
+                                </div>
+                            <div class="col">
+                                <h3>
+                                    STATUS
                                 </h3>
                             </div>
-                        <div class="col">
-                            <h3>
-                                STATUS
-                            </h3>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            Boards in {{ flight.timeToDepart }} minutes
+                        <div class="row">
+                            <div class="col">
+                                Boards in {{ flight.timeToDepart }} minutes
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <h3>
-                                {{ flight.destination }}
-                            </h3>
+                        <div class="row">
+                            <div class="col">
+                                <h3>
+                                    {{ flight.destination }}
+                                </h3>
+                            </div>
+                            <div class="col">
+                                <h3 style="color: red">
+                                    {{ flight.status }}
+                                </h3>
+                            </div>
                         </div>
-                        <div class="col">
-                            <h3 style="color: red">
-                                {{ flight.status }}
-                            </h3>
+                        <div class="row">
+                            <div class="col details">
+                                GATE {{ flight.gate }}
+                            </div>
+                            <div class="col details">
+                                DOOR CLOSES 1:55pm
+                            </div>
+                            <div class="col details">
+                                Departing Time 2:05 pm
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col details">
-                            GATE {{ flight.gate }}
-                        </div>
-                        <div class="col details">
-                            DOOR CLOSES 1:55pm
-                        </div>
-                        <div class="col details">
-                            Departing Time 2:05 pm
-                        </div>
-                    </div>
+                    </a>
             </div>
         </div>
     </div>

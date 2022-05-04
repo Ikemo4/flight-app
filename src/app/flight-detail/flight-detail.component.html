@@ -1,7 +1,7 @@
 <div *ngIf="flight">
-    <h2> {{ flight.origin | uppercase }} to {{ flight.destination | uppercase }} details</h2>
+    <h2> {{ flight.origin | uppercase }} to {{ flight.destination | uppercase }}</h2>
     <div>
-        <label id="flight-number">{{ flight.flightNumber }}</label>
-        <label id="flight-status">{{ flight.status }}</label>
+        <label id="flight-number">{{ flight.flightNumber }}</label><br>
+        <label id="flight-status">{{ flight.status }}</label><br>
     </div>
 </div>
